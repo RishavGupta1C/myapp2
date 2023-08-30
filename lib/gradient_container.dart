@@ -11,14 +11,25 @@ class GradientContainer extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.purpleAccent, Colors.pinkAccent],
+          colors: [Colors.blueAccent, Colors.pinkAccent],
           begin: gradientStartAlignment,
           end: gradientEndAlignment,
         ),
       ),
-      child: ElevatedButton(
-        onPressed: getQuestion,
-        child: const Text('Start Quiz'),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset('assets/images/quiz-logo.png'),
+            const SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+              onPressed: getQuestion,
+              child: const Text('Start Quiz'),
+            ),
+          ],
+        ),
       ),
     );
   }
