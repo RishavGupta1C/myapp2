@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp2/gradient_container.dart';
+import 'package:myapp2/start_screen.dart';
 
 void main() {
   runApp(
@@ -16,7 +16,7 @@ void main() {
               end: gradientEndAlignment,
             ),
           ),
-          child: const GradientContainer(),
+          child: const StartScreen(),
         ),
       ),
     ),
