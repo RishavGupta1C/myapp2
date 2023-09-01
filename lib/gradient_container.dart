@@ -37,10 +37,20 @@ class GradientContainer extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          OutlinedButton.icon(
+          ElevatedButton.icon(
             onPressed: getQuestion,
-            style: TextButton.styleFrom(
-              elevation: 7,
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
+              backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  side: const BorderSide(
+                    color: Color.fromARGB(100, 255, 255, 255),
+                    width: 1,
+                  ),
+                ),
+              ),
             ),
             icon: const Icon(
               Icons.arrow_right_alt,
@@ -49,7 +59,7 @@ class GradientContainer extends StatelessWidget {
             label: const Text(
               'Start Quiz',
               style: TextStyle(
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: Color.fromARGB(200, 255, 255, 255),
               ),
             ),
           ),
