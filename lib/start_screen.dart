@@ -4,7 +4,9 @@ const gradientStartAlignment = Alignment.topLeft;
 const gradientEndAlignment = Alignment.bottomRight;
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({Key? key}) : super(key: key);
+  const StartScreen(this.startQuiz, {Key? key}) : super(key: key);
+
+  final void Function() startQuiz;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class StartScreen extends StatelessWidget {
             height: 20,
           ),
           ElevatedButton.icon(
-            onPressed: getQuestion,
+            onPressed: startQuiz, // pointer to startQuiz Function
             style: ButtonStyle(
               elevation: MaterialStateProperty.all(0),
               backgroundColor: MaterialStateProperty.all(Colors.transparent),
@@ -67,6 +69,4 @@ class StartScreen extends StatelessWidget {
       ),
     );
   }
-
-  void getQuestion() {}
 }
