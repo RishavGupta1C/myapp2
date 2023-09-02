@@ -21,15 +21,18 @@ class AnswerButton extends StatelessWidget {
       onPressed: onTap,
       style: TextButton.styleFrom(
         padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 40,
+          vertical: 5,
+          horizontal: 30,
         ),
-        backgroundColor: const Color.fromARGB(255, 138, 29, 10),
+        backgroundColor: const Color.fromARGB(255, 105, 34, 172),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
         ),
       ),
-      child: Text(answerText),
+      child: Text(
+        answerText,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

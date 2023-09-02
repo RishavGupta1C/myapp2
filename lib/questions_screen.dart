@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp2/answer_button.dart';
 import 'package:myapp2/data/questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({Key? key}) : super(key: key);
@@ -12,10 +13,24 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionsScreen> {
-  final currentQuestion = questions[0];
+  var currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    // currentQuestionIndex += 1;
+    // currentQuestionIndex++;
+    setState(() {
+      if (currentQuestionIndex + 1 < questions.length) {
+        ++currentQuestionIndex;
+      } else {
+        currentQuestionIndex = 0;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final currentQuestion = questions[currentQuestionIndex];
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -26,17 +41,24 @@ class _QuestionScreenState extends State<QuestionsScreen> {
           children: [
             Text(
               currentQuestion.text,
-              style: const TextStyle(
+              style: GoogleFonts.lato(
                 color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
             // Spreading Operator(...) to dynamically generate answerButons
             // map doesn't change but shuffle changes the original list
-            ...currentQuestion.getShuffledAnswer().map((answer) {
-              return AnswerButton(answerText: answer, onTap: () {});
-            })
+            ...currentQuestion.getShuffledAnswer().map(
+              (answer) {
+                return AnswerButton(
+                  answerText: answer,
+                  onTap: answerQuestion,
+                );
+              },
+            ),
           ],
         ),
       ),
