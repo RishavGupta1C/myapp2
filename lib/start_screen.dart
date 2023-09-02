@@ -44,7 +44,9 @@ class StartScreen extends StatelessWidget {
             onPressed: startQuiz, // pointer to startQuiz Function
             style: ButtonStyle(
               elevation: MaterialStateProperty.all(0),
-              backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              backgroundColor: MaterialStateProperty.all(
+                Colors.transparent,
+              ),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
