@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const gradientStartAlignment = Alignment.topLeft;
 const gradientEndAlignment = Alignment.bottomRight;
@@ -29,10 +30,10 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 60,
           ),
-          const Text(
+          Text(
             'Learn Flutter The Fun Way!',
-            style: TextStyle(
-              color: Color.fromARGB(255, 236, 226, 226),
+            style: GoogleFonts.raleway(
+              color: const Color.fromARGB(255, 236, 226, 226),
               fontSize: 20,
             ),
           ),
