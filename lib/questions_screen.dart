@@ -50,8 +50,10 @@ class _QuestionScreenState extends State<QuestionsScreen> {
             ),
             const SizedBox(height: 30),
             // Spreading Operator(...) to dynamically generate answerButons
-            // map doesn't change but shuffle changes the original list
-            ...currentQuestion.getShuffledAnswer().map(
+            // or, to get standalone comma separated items
+            // and to the children argument of the Column Widget
+            // map() doesn't change but shuffle changes the original list
+            ...currentQuestion.shuffledAnswer.map(
               (answer) {
                 return AnswerButton(
                   answerText: answer,

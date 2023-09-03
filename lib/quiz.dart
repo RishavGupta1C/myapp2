@@ -13,6 +13,8 @@ class Quiz extends StatefulWidget {
   }
 }
 
+// underscore before QuizState means that this class is private
+// and should only be usable within this file
 class _QuizState extends State<Quiz> {
   // First method to call questionsScreen using
   // startQuiz Button Click Present in StartScreen
@@ -34,17 +36,19 @@ class _QuizState extends State<Quiz> {
   // Second Method
   var activeScreen = 'start-screen';
   // This list can be final as we are just adding to the existing list
-  List<String> selectedAnswers = [];
+  // Underscore means that these methods and properties
+  // can only be used within this file
+  List<String> _selectedAnswers = [];
 
-  void switchScreen() {
+  void _switchScreen() {
     setState(() {
       activeScreen = 'questions-screen';
     });
   }
 
   void chooseAnswer(String answer) {
-    selectedAnswers.add(answer);
-    if (selectedAnswers.length == questions.length) {
+    _selectedAnswers.add(answer);
+    if (_selectedAnswers.length == questions.length) {
       setState(() {
         activeScreen = 'results-screen';
       });
@@ -53,7 +57,7 @@ class _QuizState extends State<Quiz> {
 
   void restartQuiz() {
     setState(() {
-      selectedAnswers = [];
+      _selectedAnswers = [];
       activeScreen = 'questions-screen';
     });
   }
@@ -64,7 +68,7 @@ class _QuizState extends State<Quiz> {
     //     ? StartScreen(switchScreen)
     //     : const QuestionsScreen();
 
-    Widget screenWidget = StartScreen(switchScreen);
+    Widget screenWidget = StartScreen(_switchScreen);
 
     if (activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen(
@@ -72,7 +76,7 @@ class _QuizState extends State<Quiz> {
       );
     } else if (activeScreen == 'results-screen') {
       screenWidget = ResultsScreen(
-        chosenAnswers: selectedAnswers,
+        chosenAnswers: _selectedAnswers,
         onRestart: restartQuiz,
       );
     }
