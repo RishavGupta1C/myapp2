@@ -37,18 +37,15 @@ class _QuizState extends State<Quiz> {
   List<String> selectedAnswers = [];
 
   void switchScreen() {
-    setState(
-      () {
-        activeScreen = 'questions-screen';
-      },
-    );
+    setState(() {
+      activeScreen = 'questions-screen';
+    });
   }
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        selectedAnswers = [];
         activeScreen = 'results-screen';
       });
     }
@@ -57,7 +54,7 @@ class _QuizState extends State<Quiz> {
   void restartQuiz() {
     setState(() {
       selectedAnswers = [];
-      activeScreen = 'start-screen';
+      activeScreen = 'questions-screen';
     });
   }
 
